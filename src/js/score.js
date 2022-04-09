@@ -1,11 +1,13 @@
 const scoreBoard = document.querySelector('.panel__score');
 const panelLastScores = document.querySelector('.panel__last-scores ul');
+const finalScore = document.querySelector('.final__score')
+
 let gameScore = 0;
 let lastScoresArray = []
 
 export function adScore(scoreAmount) {
     gameScore += scoreAmount;
-    console.log(gameScore);
+    // console.log(gameScore);
     scoreBoard.innerHTML = gameScore;
 }
 
@@ -15,6 +17,10 @@ export function resetScore() {
 }
 
 export function saveScore() {
+    console.log(gameScore);
+    finalScore.innerHTML = gameScore;
+
+    if(gameScore == 0) return
     lastScoresArray.push(gameScore)
     localStorage.setItem('LastScores',JSON.stringify(lastScoresArray))
 }

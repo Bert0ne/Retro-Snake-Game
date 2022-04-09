@@ -8,7 +8,7 @@ window.addEventListener('keydown', e => {
       inputDirection = { x: 0, y: -1 }
       break
     case 'ArrowDown':
-      if (lastInputDirection.y !== 0) break
+      if (lastInputDirection.y !== 0 || inputDirection.y == 0 && inputDirection.x == 0 ) break
       inputDirection = { x: 0, y: 1 }
       break
     case 'ArrowLeft':
@@ -25,4 +25,8 @@ window.addEventListener('keydown', e => {
 export function getInputDirection() {
   lastInputDirection = inputDirection
   return inputDirection
+}
+
+export function stopSnake() {
+  inputDirection = { x: 0, y: 0 }
 }

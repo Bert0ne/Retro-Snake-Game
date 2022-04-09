@@ -11,6 +11,7 @@ body {
     margin: 0;
     font-family: 'Press Start 2P', cursive;
     color: #fff;
+    position: relative;
 }
 
 
@@ -50,7 +51,7 @@ body {
 }
 
 
-.button__restart {
+.button__restart, .game_over__btn {
     font-family: 'Press Start 2P', cursive;
     font-size:20px;
     background-color: #000;
@@ -94,6 +95,33 @@ h1, h3 {
 }
 
 
+.game_over_container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+.notActive {
+    display: flex;
+}
+
+.game_over_info {
+    height: 400px;
+    width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* ------- MEDIA QUERY ------ */ 
 @media (min-width: 1282px) {
     .arrows {
         display: none;

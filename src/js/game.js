@@ -1,21 +1,18 @@
-import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection } from './snake.js'
+import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection , restartSnake} from './snake.js'
 import { update as updateFood, draw as drawFood } from './food.js'
 import { outsideGrid } from './grid.js'
 import { resetScore, saveScore, loadSavedScores } from './score.js'
+import { stopSnake } from './input.js'
 
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById('game__board');
-
+const gameOverBoard = document.querySelector('.game_over_container');
+const gameOverBtn = document.querySelector('.game_over__btn')
 
 function main(currentTime) {
   if (gameOver) {
-    saveScore()  
-    resetScore()
-    if (confirm('You lost. Press ok to restart.')) {
-      window.location = '/'
-    }
-    return
+    gameOverProcedure()
   }
 
 
@@ -51,7 +48,17 @@ function checkDeath() {
   gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
 }
 
-//   localStorage.setItem('bookmarks', JSON.stringify(state.bookmarks));
+function gameOverProcedure() {
 
-// const storage = localStorage.getItem('bookmarks');
-// if (storage) state.bookmarks = JSON.parse(storage);
+    saveScore()  
+    resetScore()
+    stopSnake()
+    restartSnake()
+    gameOverBoard.classList.add('notActive')
+
+    gameOverBtn.addEventListener('click', () => {
+        gameOverBoard.classList.remove('notActive'); 
+        // window.location = '/'  
+    })
+
+}
