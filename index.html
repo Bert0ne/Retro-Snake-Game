@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <script defer type="module" src="./game.js"></script>
+    <link rel="shortcut icon" href="#" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Snake Game</title>
+</head>
+<body>
+
+    <div id="game__board">
+
+    </div>
+
+    <div class="panel">
+        <div class="panel__buttons">
+            <button class="button__restart">New Game</button>
+
+            <label for="difficulty-level">Choose Difficulty Level:</label>
+
+            <select class="select-level" name="levels" id="difficulty-level">
+                <option value="1">Level 1</option>
+                <option value="2">Level 2</option>
+                <option value="3">Level 3</option>
+                <option value="4">Level 4</option>
+                <option value="5">Level 5</option>
+                <option value="6">Level 6</option>
+                <option value="7">Level 7</option>
+                <option value="8">Level 8</option>
+                <option value="9">Level 9</option>
+                <option value="10">Level 10</option>
+            </select>          
+            
+        </div>
+
+
+        <h2>Your Score <span class="panel__score">0</span></h2>
+        <div class="panel__last-scores">
+            <h3>Last Scores:</h3>
+            <ul>
+                <li>4</li>
+                <li>23</li>
+                <li>133</li>
+                <li>413</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
