@@ -20,6 +20,7 @@ export function saveScore() {
     if(gameScore != 0){
 
         lastScoresArray.push(gameScore)
+        lastScoresArray.length >= 10 ? lastScoresArray.shift() : '';
         finalScore.innerHTML = gameScore;
         // finalScore.innerHTML = lastScoresArray.at(-1);
         // gameScore == 0 ? finalScore.innerHTML = 0 : finalScore.innerHTML = lastScoresArray.at(-1);   
