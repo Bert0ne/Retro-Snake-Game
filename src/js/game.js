@@ -16,7 +16,7 @@ function main(currentTime) {
   }
 
 
-  window.requestAnimationFrame(main)
+   window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
 
@@ -54,11 +54,13 @@ function gameOverProcedure() {
     resetScore()
     stopSnake()
     restartSnake()
+    loadSavedScores()
     gameOverBoard.classList.add('notActive')
 
     gameOverBtn.addEventListener('click', () => {
         gameOverBoard.classList.remove('notActive'); 
         // window.location = '/'  
     })
+   
 
 }
