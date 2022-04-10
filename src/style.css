@@ -30,8 +30,12 @@ body {
     border: .25vmin solid black;
 }
 
-.food {
-    background-color: yellow;
+
+.cherry {
+    background-color: crimson;
+}
+.apple {
+    background-color: greenyellow;
 }
 
 .panel {
