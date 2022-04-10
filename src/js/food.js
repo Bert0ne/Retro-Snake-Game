@@ -2,6 +2,9 @@ import { onSnake, expandSnake } from './snake.js'
 import { randomGridPosition } from './grid.js'
 import { adScore } from './score.js'
 
+const audioFruit = document.querySelector(`audio[data-sound="fruit"]`);
+const bonusFruit = document.querySelector(`audio[data-sound="bonus"]`);
+
 let food = getRandomFoodPosition()
 let foodSpeed = 30000;
 let foodSpeedInterval;
@@ -26,6 +29,15 @@ export function update() {
     food = getRandomFoodPosition()
     changeFoodSpeed(gameLevelForFruits) 
 
+    if(bonusFood) {
+      bonusFruit.currentTime = 0;
+      bonusFruit.play()
+    } else {
+      audioFruit.currentTime = 0;
+      audioFruit.play()
+    }
+
+
 
     if(bonusFoodCounter >= 5) {
       adScore(BONUS_FOOD_SCORE)
@@ -43,6 +55,7 @@ export function draw(gameBoard) {
   foodElement.style.gridRowStart = food.y
   foodElement.style.gridColumnStart = food.x
   foodElement.classList.add(`${bonusFood ? 'apple' : 'cherry'}`)
+  foodElement.classList.add('fruit')
   // foodElement.classList.add('cherry');
   gameBoard.appendChild(foodElement)
 }
@@ -54,16 +67,6 @@ function getRandomFoodPosition() {
   }
   return newFoodPosition
 }
-
-
-// export function foodChangePlaceAfterTime(gameLevel) {
-//   // let foodTime = 30 / (gameLevel / 2)
-//   // console.log(foodTime);
-
-//   setInterval(() => {
-//     food = getRandomFoodPosition()
-//   }, gameLevel);
-// }
 
 export function changeFoodSpeed(gameLevel) {
   gameLevelForFruits = gameLevel;
@@ -80,3 +83,14 @@ function intervalFood() {
 }
 
 intervalFood()
+
+
+
+// const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+// const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+
+// console.log(audio);
+// if(!audio) return;
+// audio.currentTime = 0;
+// audio.play()
+// key.classList.add('playing')

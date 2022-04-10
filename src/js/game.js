@@ -10,6 +10,7 @@ const gameBoard = document.getElementById('game__board');
 const gameOverBoard = document.querySelector('.game_over_container');
 const gameOverBtn = document.querySelector('.game_over__btn')
 const levelSelect = document.querySelector('.select-level')
+const gameOverSound = document.querySelector(`audio[data-sound="over"]`);
 
 function main(currentTime) {
   if (gameOver) {
@@ -51,6 +52,9 @@ function checkDeath() {
 }
 
 function gameOverProcedure() {
+
+    gameOverSound.currentTime = 0;
+    gameOverSound.play()
 
     saveScore()  
     resetScore()
