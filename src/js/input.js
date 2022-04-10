@@ -3,6 +3,8 @@ const downArr = document.querySelector('.down')
 const leftArr = document.querySelector('.left')
 const rightArr = document.querySelector('.right')
 
+let isClicked = false
+
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
 

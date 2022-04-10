@@ -1,5 +1,5 @@
 import { update as updateSnake, draw as drawSnake, snakeSpeed, getSnakeHead, snakeIntersection , restartSnake, changeSnakeSpeed} from './snake.js'
-import { update as updateFood, draw as drawFood, foodChangePlaceAfterTime } from './food.js'
+import { update as updateFood, draw as drawFood, changeFoodSpeed } from './food.js'
 import { outsideGrid } from './grid.js'
 import { resetScore, saveScore, loadSavedScores } from './score.js'
 import { stopSnake, addKeyListener, deleteKeyListener, clickArrowListener } from './input.js'
@@ -16,18 +16,16 @@ function main(currentTime) {
     gameOverProcedure()
   }
 
-
    window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / snakeSpeed) return
-
 
   lastRenderTime = currentTime
 
   update()
   draw()
-
 }
+
 window.addEventListener('DOMContentLoaded', () => {
     loadSavedScores()
     addKeyListener()
@@ -80,5 +78,6 @@ function addLevelChangeListener() {
   levelSelect.addEventListener('change', (e) => {
     const speedValue = e.target.value;
     changeSnakeSpeed(speedValue)
+    changeFoodSpeed(speedValue)
   })
 }
