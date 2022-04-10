@@ -1,6 +1,7 @@
 import { getInputDirection } from "./input.js"
 
-export const SNAKE_SPEED = 8
+export let snakeSpeed = 2
+
 let snakeBody = [
     { x: 11, y: 11 },
     { x: 11, y: 12 },
@@ -68,4 +69,8 @@ export function restartSnake() {
         { x: 11, y: 12 },
         { x: 11, y: 13 }
     ]
+}
+
+export function changeSnakeSpeed(speedValue) {
+  snakeSpeed = speedValue * 2;
 }

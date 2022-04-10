@@ -7,13 +7,11 @@ let lastScoresArray = []
 
 export function adScore(scoreAmount) {
     gameScore += scoreAmount;
-    // console.log(gameScore);
     scoreBoard.innerHTML = gameScore;
 }
 
 
 export function saveScore() {
-    console.log(gameScore);
     // finalScore.innerHTML = gameScore;
 
     if(gameScore == 0) return

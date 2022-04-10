@@ -1,4 +1,4 @@
-import { update as updateSnake, draw as drawSnake, SNAKE_SPEED, getSnakeHead, snakeIntersection , restartSnake} from './snake.js'
+import { update as updateSnake, draw as drawSnake, snakeSpeed, getSnakeHead, snakeIntersection , restartSnake, changeSnakeSpeed} from './snake.js'
 import { update as updateFood, draw as drawFood } from './food.js'
 import { outsideGrid } from './grid.js'
 import { resetScore, saveScore, loadSavedScores } from './score.js'
@@ -9,6 +9,7 @@ let gameOver = false;
 const gameBoard = document.getElementById('game__board');
 const gameOverBoard = document.querySelector('.game_over_container');
 const gameOverBtn = document.querySelector('.game_over__btn')
+const levelSelect = document.querySelector('.select-level')
 
 function main(currentTime) {
   if (gameOver) {
@@ -18,7 +19,7 @@ function main(currentTime) {
 
    window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
-  if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
+  if (secondsSinceLastRender < 1 / snakeSpeed) return
 
 
   lastRenderTime = currentTime
@@ -30,6 +31,7 @@ function main(currentTime) {
 window.addEventListener('DOMContentLoaded', ()=>{
     loadSavedScores()
     addKeyListener()
+    addLevelChangeListener()
     window.requestAnimationFrame(main)
 })
 
@@ -70,4 +72,11 @@ function gameOverProcedure() {
 function gameOverPanelDown() {
   addKeyListener() 
   gameOverBoard.classList.remove('notActive');
+}
+
+function addLevelChangeListener() {
+  levelSelect.addEventListener('change', (e) => {
+    const speedValue = e.target.value;
+    changeSnakeSpeed(speedValue)
+  })
 }
