@@ -5,12 +5,15 @@ let food = getRandomFoodPosition()
 const EXPANSION_RATE = 1
 const FOODS_SCORE = 10;
 
+
+
 export function update() {
   if (onSnake(food)) {
     expandSnake(EXPANSION_RATE)
     food = getRandomFoodPosition()
-    adScore(FOODS_SCORE)
+    adScore(FOODS_SCORE)  
   }
+
 }
 
 export function draw(gameBoard) {
@@ -27,4 +30,14 @@ function getRandomFoodPosition() {
     newFoodPosition = randomGridPosition()
   }
   return newFoodPosition
+}
+
+
+export function foodChangePlaceAfterTime(gameLevel) {
+  // let foodTime = 30 / (gameLevel / 2)
+  // console.log(foodTime);
+
+  setInterval(() => {
+    food = getRandomFoodPosition()
+  }, gameLevel);
 }
