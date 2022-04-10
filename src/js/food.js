@@ -43,6 +43,7 @@ export function draw(gameBoard) {
   foodElement.style.gridRowStart = food.y
   foodElement.style.gridColumnStart = food.x
   foodElement.classList.add(`${bonusFood ? 'apple' : 'cherry'}`)
+  // foodElement.classList.add('cherry');
   gameBoard.appendChild(foodElement)
 }
 
