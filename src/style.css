@@ -234,6 +234,10 @@ h1, h3 {
     border-radius: 0;
     animation: snake 1s infinite ease-in-out;
   }
+
+  .snakeAnimation span:nth-child(1){
+      border-radius: 1px;
+  }
   
   .snakeAnimation span:nth-child(2){
     left: 10px;
@@ -253,10 +257,16 @@ h1, h3 {
   .snakeAnimation span:nth-child(5){
     left: 40px;
     animation-delay: 0.8s;
+
+    width: 0;
+	height: 0;
+	border-top: 5px solid #000;
+	border-left: 10px solid #fff;
+	border-bottom: 5px solid #000;
   }
   
   @keyframes snake {
-    0% {opacity: 0.8; transform:translateY(0px);  }
-      50% {opacity: 1; transform: translateY(-10px);  }
-      100%  {opacity: 0.8; transform:translateY(0px);}
+    0% {opacity: 1; transform:translateY(0px);  }
+      50% {opacity: 1; transform: translateY(-6px);  }
+      100%  {opacity: 1; transform:translateY(0px);}
   }
