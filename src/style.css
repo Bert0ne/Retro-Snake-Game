@@ -71,6 +71,10 @@ body {
     margin: 20px;
 }
 
+.game_over__btn {
+    border: 1px solid #fff;
+}
+
 .select-level {
     font-family: 'Press Start 2P', cursive;
     background-color: #000;

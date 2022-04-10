@@ -17,7 +17,7 @@ function main(currentTime) {
     gameOverProcedure()
   }
 
-   window.requestAnimationFrame(main)
+  window.requestAnimationFrame(main)
   const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
   if (secondsSinceLastRender < 1 / snakeSpeed) return
 
@@ -64,12 +64,17 @@ function gameOverProcedure() {
     deleteKeyListener()
     gameOverBoard.classList.add('notActive')
 
+    window.addEventListener('keydown', (e) => {
+      console.log(e.key);
+      if(e.key == 'Enter') {
+        gameOverPanelDown()
+      }
+    })
+
     gameOverBtn.addEventListener('click', () => {
         // window.location = '/'  
         gameOverPanelDown()
     })
-
-
 }
 
 function gameOverPanelDown() {

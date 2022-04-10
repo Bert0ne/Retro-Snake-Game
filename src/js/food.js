@@ -8,7 +8,7 @@ const bonusFruit = document.querySelector(`audio[data-sound="bonus"]`);
 let food = getRandomFoodPosition()
 let foodSpeed = 30000;
 let foodSpeedInterval;
-let gameLevelForFruits;
+let gameLevelForFruits = 1;
 let bonusFood = false;
 let bonusFoodCounter = 0;
 
@@ -16,14 +16,11 @@ const EXPANSION_RATE = 1
 const FOODS_SCORE = 10;
 const BONUS_FOOD_SCORE = 50;
 
-
-
 export function update() {
   if (onSnake(food)) {
     expandSnake(EXPANSION_RATE)
 
     bonusFoodCounter++;
-    console.log(bonusFoodCounter);
     clearInterval(foodSpeedInterval)
 
     food = getRandomFoodPosition()
@@ -36,8 +33,6 @@ export function update() {
       audioFruit.currentTime = 0;
       audioFruit.play()
     }
-
-
 
     if(bonusFoodCounter >= 5) {
       adScore(BONUS_FOOD_SCORE)
@@ -83,14 +78,3 @@ function intervalFood() {
 }
 
 intervalFood()
-
-
-
-// const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-// const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-
-// console.log(audio);
-// if(!audio) return;
-// audio.currentTime = 0;
-// audio.play()
-// key.classList.add('playing')

@@ -10,7 +10,6 @@ export function adScore(scoreAmount) {
     scoreBoard.innerHTML = gameScore;
 }
 
-
 export function saveScore() {
     // finalScore.innerHTML = gameScore;
 
