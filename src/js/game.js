@@ -2,7 +2,7 @@ import { update as updateSnake, draw as drawSnake, snakeSpeed, getSnakeHead, sna
 import { update as updateFood, draw as drawFood, changeFoodSpeed } from './food.js'
 import { outsideGrid } from './grid.js'
 import { resetScore, saveScore, loadSavedScores } from './score.js'
-import { stopSnake, addKeyListener, deleteKeyListener, clickArrowListener } from './input.js'
+import { stopSnake, addKeyListener, deleteKeyListener } from './input.js'
 
 let lastRenderTime = 0;
 let gameOver = false;
@@ -30,7 +30,6 @@ function main(currentTime) {
 window.addEventListener('DOMContentLoaded', () => {
     loadSavedScores()
     addKeyListener()
-    clickArrowListener()
     addLevelChangeListener()
     window.requestAnimationFrame(main)
 })
@@ -65,7 +64,6 @@ function gameOverProcedure() {
     gameOverBoard.classList.add('notActive')
 
     window.addEventListener('keydown', (e) => {
-      console.log(e.key);
       if(e.key == 'Enter') {
         gameOverPanelDown()
       }
@@ -79,7 +77,6 @@ function gameOverProcedure() {
 
 function gameOverPanelDown() {
   addKeyListener() 
-  clickArrowListener()
   gameOverBoard.classList.remove('notActive');
 }
 
